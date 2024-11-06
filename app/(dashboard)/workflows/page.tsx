@@ -5,6 +5,7 @@ import React, { Suspense } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle, Inbox } from "lucide-react";
 import CreateWorkFlowDialog from "./_components/CreateWorkFlowDialog";
+import WorkflowCard from "./_components/WorkflowCard";
 
 function page() {
   return (
@@ -68,7 +69,13 @@ async function UserWorkflows() {
     );
   }
 
-  return <div></div>;
+  return (
+    <div className="grid grid-cols-1 gap-4">
+      {workflows.map((workflow) => (
+        <WorkflowCard key={workflow.id} workflow={workflow} />
+      ))}
+    </div>
+  );
 }
 
 export default page;
